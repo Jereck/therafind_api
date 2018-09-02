@@ -1,25 +1,24 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<% include partials/header %>
 
-        <title>TheraFind</title>
+<div class="container">
+    <h1 class="display-1">Thera<span class="text-warning">Find</span></h1>
 
-        <link rel="stylesheet" type="text/css" media="screen" href="/css/master.css" />
-        <script src="/js/master.js"></script>
+    <div class="alert alert-primary" role="alert">
+        You have been invited to register for TheraFind - a database that will soon be connecting parents and caregivers to the resources they never knew they had.
+    </div>
 
-    </head>
-    <body>
-        <h1>TheraFind</h1>
-        <form method="POST" action="/submit">
-            <input type="text" placeholder="name" name="name" />
-            <input type="text" placeholder="address" name="address" />
-            <input type="text" placeholder="city" name="city" />
-            <input type="text" placeholder="state" name="state" />
-            <input type="text" placeholder="zip" name="zip" />
-            <input type="submit" value="Submit">
-        </form>
-    </body>
-</html>
+    <h4>Login Information</h4>
+    <form action="/register" method="POST">
+        <div class="form-group">
+            <label>Username:</label>
+            <input type="text" placeholder="Username" name="username" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" placeholder="Password" name="password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </form>
+</div>
+
+<% include partials/footer %>

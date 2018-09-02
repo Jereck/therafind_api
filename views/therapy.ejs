@@ -1,0 +1,14 @@
+<% include partials/header %>
+
+<div class="container">
+    <div class="jumbotron mt-4">
+        <h1 class="display-4"><%= therapy.name %></h1>
+        <span class="lead"><%= therapy.address %></span> <br>
+        <span class="lead"><%= therapy.city %>, <%= therapy.state %> <%= therapy.zip %></span>
+        <hr class="my-4">
+        <a href="#" class="btn btn-success">Edit</a>
+        <a href="#" class="btn btn-link">Delete</a>
+    </div>
+</div>
+
+<% include partials/footer %>
