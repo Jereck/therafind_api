@@ -19,10 +19,10 @@ app.use(bodyParser.json());
 
 // DATABASE SETUP
 var db = mysql.createConnection({
-    host    : "localhost",
+    host    : "127.0.0.1",
     user    : "root",
     password: "123456",
-    database: 'therapies'
+    database: 'therapy_api'
 });
 
 db.connect((err) => {
@@ -32,6 +32,16 @@ db.connect((err) => {
         console.log("Database is not connected...");
     }
 });
+
+// CREATE DATABASE
+app.get('/create_database', (req, res) => {
+    let sql = "CREATE DATABASE therapy_api";
+    db.query(sql, (err, result) => {
+        if (err) throw err;
+        console.log(result);
+        res.send('Therapy_api database created');
+    })
+})
 
 // CREATE TABLE
 app.get('/create_table', (req, res) => {
