@@ -4,7 +4,7 @@ const   express     = require('express'),
 
         app         = express();
 
-var port = 3000 || process.env.port;
+var port = process.env.PORT || 3000;
 
 // VIEW ENGINE
 app.set('view engine', 'ejs')
