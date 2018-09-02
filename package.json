@@ -1,0 +1,17 @@
+{
+  "name": "therafind_api",
+  "version": "1.0.0",
+  "description": "API to create database of therapies",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Jake Reck",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mysql": "^2.16.0"
+  }
+}
