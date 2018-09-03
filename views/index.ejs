@@ -1,24 +1,26 @@
 <% include partials/header %>
 
 <div class="container">
-    <h1 class="display-1">Thera<span class="text-warning">Find</span></h1>
-
-    <div class="alert alert-primary" role="alert">
-        You have been invited to register for TheraFind - a database that will soon be connecting parents and caregivers to the resources they never knew they had.
-    </div>
-
-    <h4>Login Information</h4>
-    <form action="/register" method="POST">
-        <div class="form-group">
-            <label>Username:</label>
-            <input type="text" placeholder="Username" name="username" class="form-control" />
+    <% if(!currentUser) { %>
+        <h1 class="display-1 my-4">Thera<span class="text-warning">Find</span></h1>
+    
+        <div class="jumbotron">
+            <h1 class="display-4">You're invited!</h1>
+            <p class="lead">
+                Register for TheraFind, a therapeutic database that will soon be connecting parents 
+                with the resources around them that they never knew they had.
+            </p>
+            <hr class="my-4">
+            <a href="/register" class="btn btn-success btn-lg" role="button">Register</a>
+            <a href="/login" class="btn btn-link btn-lg" role="button">Login</a>
         </div>
-        <div class="form-group">
-            <label>Password:</label>
-            <input type="password" placeholder="Password" name="password" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Submit</button>
-    </form>
+    <% } else { %>
+        <h1 class="display-1">Thera<span class="text-warning">Find</span></h1>
+        <hr class="my-4">
+        <h1>Hello, <%= currentUser.username %>!</h1>
+        <p>Soon this will turn into an administrative dashboard for you.</p>
+        <p>Right now you can <a href="#">Edit</a> your information if you made a mistake or need to change anything</p>
+    <% } %>
 </div>
 
 <% include partials/footer %>

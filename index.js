@@ -49,6 +49,10 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+app.get('/register', (req, res) => {
+    res.render('register');
+});
+
 app.post('/register', (req, res) => {
     var newUser = new User({ username: req.body.username });
     User.register(newUser, req.body.password, (err, user) => {
@@ -131,7 +135,7 @@ app.get('/login', (req, res) => {
 
 app.post('/login', passport.authenticate("local",
     {
-        successRedirect: "/about",
+        successRedirect: "/",
         failureRedirect: '/login'
     }), (req, res) => {
 });
