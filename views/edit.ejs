@@ -6,28 +6,28 @@
         <form method="POST" action="/dashboard/<%= user._id %>/therapy">
             <div class="form-group">
                 <label>Company Name:</label>
-                <input type="text" placeholder="The ABA Company" name="name" class="form-control" />
+                <input type="text"  name="name" class="form-control" value="<%= therapy.name %>" />
             </div>
             <div class="form-group">
                 <label>Address:</label>
-                <input type="text" placeholder="123 Fake Street" name="address" class="form-control" />
+                <input type="text" name="address" class="form-control" value="<%= therapy.address %>"/>
             </div>
             <div class="form-group">
                 <label>Address 2:</label>
-                <input type="text" placeholder="Suite B104" name="address" class="form-control" />
+                <input type="text" name="address_two" class="form-control" value="<%= therapy.address_two %>" />
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>City:</label>
-                    <input type="text" placeholder="Las Vegas" name="city" class="form-control" />
+                    <input type="text" name="city" class="form-control" value="<%= therapy.city %>" />
                 </div>
                 <div class="form-group col-md-4">
                     <label>State:</label>
-                    <input type="text" placeholder="Nevada" name="state" class="form-control" />
+                    <input type="text" name="state" class="form-control" value="<%= therapy.state %>" />
                 </div>
                 <div class="form-group col-md-2">
                     <label>Zip Code:</label>
-                    <input type="text" placeholder="88901" name="zip" class="form-control" />
+                    <input type="text" name="zip" class="form-control" value="<%= therapy.zip %>" />
                 </div>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Submit</button>

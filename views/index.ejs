@@ -1,9 +1,18 @@
 <% include partials/header %>
 
 <div class="container">
+    <h1 class="display-1">Thera<span class="text-warning">Find</span></h1>
+    <hr class="my-4">
+
+    <p class='lead text-center my-5'>
+        TheraFind is all about connecting parents and caregivers with the resources
+        they never knew were available to them. Sometimes, when your child is diagnosed,
+        things can be overwhemling. TheraFind's goal is to ease that stress.
+    </p>
+
+
     <% if(!currentUser) { %>
-        <h1 class="display-1 my-4">Thera<span class="text-warning">Find</span></h1>
-    
+
         <div class="jumbotron">
             <h1 class="display-4">You're invited!</h1>
             <p class="lead">
@@ -14,12 +23,12 @@
             <a href="/register" class="btn btn-success btn-lg" role="button">Register</a>
             <a href="/login" class="btn btn-link btn-lg" role="button">Login</a>
         </div>
+
     <% } else { %>
-        <h1 class="display-1">Thera<span class="text-warning">Find</span></h1>
-        <hr class="my-4">
+
         <h1>Hello, <%= currentUser.username %>!</h1>
-        <p>Soon this will turn into an administrative dashboard for you.</p>
-        <p>Right now you can <a href="#">Edit</a> your information if you made a mistake or need to change anything</p>
+        <a href="/dashboard/<%= currentUser._id %>" class="btn btn-success btn-lg">Dashboard</a>
+    
     <% } %>
 </div>
 
