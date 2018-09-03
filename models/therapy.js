@@ -6,7 +6,7 @@ const TherapySchema = new mongoose.Schema({
     city: String,
     state: String,
     zip: String,
-    author: {
+    user: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'

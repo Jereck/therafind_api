@@ -26,8 +26,7 @@
 
     <% } else { %>
 
-        <h1>Hello, <%= currentUser.username %>!</h1>
-        <a href="/dashboard/<%= currentUser._id %>" class="btn btn-success btn-lg">Dashboard</a>
+        You're already logged in. Go to your <a href="/profile/<%= currentUser._id %>">Dashboard</a>
     
     <% } %>
 </div>
