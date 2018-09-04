@@ -1,11 +1,52 @@
 <% include partials/header %>
 
 <div class="container my-5">
-    <h1>Hello, <%= user.username %></h1>
-    <% therapy.forEach(function(item) { %>
-        <%= item.name %>
-        <%= item.address %>
-    <% }) %>
+    <div class="row">
+        <div class="col-4">
+            <h1>Hello, <%= user.username %></h1>
+        </div>
+        <div class="col-8">
+            <% if(therapy.length <= 0) { %>
+                <a href="/therapy_setup">Set Up Therapy</a>
+            <% } else { %>
+                <% therapy.forEach(function(item) { %>
+                    <table class="table">
+                        <thead>
+                            <h1 class="display-1 mb-4">
+                                <%= item.name %>
+                            </h1>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Name</th>
+                                <td><%= item.name %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Address</th>
+                                <td><%= item.address %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">City</th>
+                                <td><%= item.city %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">State</th>
+                                <td><%= item.state %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Zip</th>
+                                <td><%= item.zip %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="/therapy/<%= item._id %>/edit" class="btn btn-warning">Edit</a>
+                    <form id="delete-form" action="/therapy/<%= item._id %>?_method=DELETE" method="POST">
+                        <input type="submit" class="btn btn-link" value="Delete" />
+                    </form>
+                <% }) %>
+            <% } %>
+        </div>
+    </div>
 </div>
 
 <% include partials/footer %>

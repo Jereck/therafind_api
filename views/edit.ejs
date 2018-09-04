@@ -3,7 +3,7 @@
         <h1 class="display-1">Thera<span class="text-warning">Find</span></h1>
         <h5 class="mb-5">Fill out the information below to be added to the database</h5>
         
-        <form method="POST" action="/dashboard/<%= user._id %>/therapy/<%= therapy._id %>?_method=PUT">
+        <form method="POST" action="/therapy/<%= therapy._id %>?_method=PUT">
             <div class="form-group">
                 <label>Company Name:</label>
                 <input type="text"  name="name" class="form-control" value="<%= therapy.name %>" />

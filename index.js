@@ -98,7 +98,7 @@ app.post('/submit', isLoggedIn, (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            res.redirect('/');
+            res.redirect('/profile/' + req.user._id);
         }
     });
 });
@@ -115,14 +115,55 @@ app.get('/profile/:id', isLoggedIn, (req, res) => {
                 if (err) {
                     console.log(err);
                 } else {
-                    console.log(foundUser);
-                    console.log(foundTherapy);
                     res.render('dashboard', { user: foundUser, therapy: foundTherapy });
                 }
-            })
+            });
         }
-    })
-})
+    });
+});
+
+// ===========================
+// STEP 4 - EDIT THERAPY INFO
+// ===========================
+app.get('/therapy/:id/edit', isLoggedIn, (req, res) => {
+    Therapy.findById(req.params.id, (err, foundTherapy) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render('edit', {therapy: foundTherapy});
+        }
+    });
+});
+app.put('/therapy/:id', (req, res) => {
+    let newTherapy = {
+        name: req.body.name,
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
+    }
+    Therapy.findByIdAndUpdate(req.params.id, newTherapy, (err, updatedTherapy) => {
+        if (err) {
+            res.redirect('/');
+        } else {
+            res.redirect('/profile/' + req.user._id);
+        }
+    });
+});
+
+// ===========================
+// STEP 5 - DELETE THERAPY INFO
+// ===========================
+app.delete("/therapy/:id", (req, res) => {
+    Therapy.findByIdAndRemove(req.params.id, (err) => {
+        if (err) {
+            res.redirect('/profile/' + req.user._id);
+        } else {
+            res.redirect('/profile/' + req.user._id);
+        }
+    });
+});
+
 
 
 app.get('/login', (req, res) => {
