@@ -6,6 +6,8 @@ const TherapySchema = new mongoose.Schema({
     city: String,
     state: String,
     zip: String,
+    phone: String,
+    email: String,
     user: {
         id: {
             type: mongoose.Schema.Types.ObjectId,

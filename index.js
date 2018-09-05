@@ -91,6 +91,8 @@ app.post('/submit', isLoggedIn, (req, res) => {
         city: req.body.city,
         state: req.body.state,
         zip: req.body.zip,
+        phone: req.body.phonenumber,
+        email: req.body.email,
         user: user
     }
 
@@ -141,6 +143,8 @@ app.put('/therapy/:id', (req, res) => {
         city: req.body.city,
         state: req.body.state,
         zip: req.body.zip,
+        phone: req.body.phonenumber,
+        email: req.body.email
     }
     Therapy.findByIdAndUpdate(req.params.id, newTherapy, (err, updatedTherapy) => {
         if (err) {
