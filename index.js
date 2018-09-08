@@ -187,6 +187,10 @@ app.get('/logout', (req, res) => {
     res.redirect('/');
 });
 
+app.get('/privacy-policy', (req, res) => {
+    res.render('privacy-policy');
+});
+
 // CHECK LOGIN MIDDLEWARE
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
