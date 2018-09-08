@@ -85,6 +85,7 @@ app.post('/submit', isLoggedIn, (req, res) => {
         id: req.user._id,
         username: req.user.username
     }
+
     let newTherapy = {
         name: req.body.name,
         address: req.body.address,
